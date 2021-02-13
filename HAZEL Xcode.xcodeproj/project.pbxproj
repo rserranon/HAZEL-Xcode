@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62CB297D25D856E700C7E0DF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62CB297C25D856E700C7E0DF /* main.cpp */; };
+		62CB298F25D8580500C7E0DF /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62CB298825D8580500C7E0DF /* Application.cpp */; };
+		62CB299025D8580500C7E0DF /* SandboxApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62CB298A25D8580500C7E0DF /* SandboxApp.cpp */; };
+		62CB299125D8580500C7E0DF /* log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62CB298E25D8580500C7E0DF /* log.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +26,18 @@
 
 /* Begin PBXFileReference section */
 		62CB297925D856E700C7E0DF /* HAZEL Xcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "HAZEL Xcode"; sourceTree = BUILT_PRODUCTS_DIR; };
-		62CB297C25D856E700C7E0DF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		62CB298425D8580500C7E0DF /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		62CB298525D8580500C7E0DF /* KeyCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyCodes.h; sourceTree = "<group>"; };
+		62CB298625D8580500C7E0DF /* MouseEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseEvent.h; sourceTree = "<group>"; };
+		62CB298725D8580500C7E0DF /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
+		62CB298825D8580500C7E0DF /* Application.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
+		62CB298925D8580500C7E0DF /* KeyEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyEvent.h; sourceTree = "<group>"; };
+		62CB298A25D8580500C7E0DF /* SandboxApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SandboxApp.cpp; sourceTree = "<group>"; };
+		62CB298B25D8580500C7E0DF /* ApplicationEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationEvent.h; sourceTree = "<group>"; };
+		62CB298C25D8580500C7E0DF /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
+		62CB298D25D8580500C7E0DF /* MouseCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseCodes.h; sourceTree = "<group>"; };
+		62CB298E25D8580500C7E0DF /* log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = log.cpp; sourceTree = "<group>"; };
+		62CB299325D8581000C7E0DF /* spdlog */ = {isa = PBXFileReference; lastKnownFileType = folder; path = spdlog; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +70,18 @@
 		62CB297B25D856E700C7E0DF /* HAZEL Xcode */ = {
 			isa = PBXGroup;
 			children = (
-				62CB297C25D856E700C7E0DF /* main.cpp */,
+				62CB299325D8581000C7E0DF /* spdlog */,
+				62CB298825D8580500C7E0DF /* Application.cpp */,
+				62CB298725D8580500C7E0DF /* Application.h */,
+				62CB298B25D8580500C7E0DF /* ApplicationEvent.h */,
+				62CB298425D8580500C7E0DF /* Event.h */,
+				62CB298525D8580500C7E0DF /* KeyCodes.h */,
+				62CB298925D8580500C7E0DF /* KeyEvent.h */,
+				62CB298E25D8580500C7E0DF /* log.cpp */,
+				62CB298C25D8580500C7E0DF /* log.h */,
+				62CB298D25D8580500C7E0DF /* MouseCodes.h */,
+				62CB298625D8580500C7E0DF /* MouseEvent.h */,
+				62CB298A25D8580500C7E0DF /* SandboxApp.cpp */,
 			);
 			path = "HAZEL Xcode";
 			sourceTree = "<group>";
@@ -118,7 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62CB297D25D856E700C7E0DF /* main.cpp in Sources */,
+				62CB299125D8580500C7E0DF /* log.cpp in Sources */,
+				62CB298F25D8580500C7E0DF /* Application.cpp in Sources */,
+				62CB299025D8580500C7E0DF /* SandboxApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,16 +265,20 @@
 		62CB298125D856E700C7E0DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/HAZEL Xcode/spdlog/include/\"";
 			};
 			name = Debug;
 		};
 		62CB298225D856E700C7E0DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/HAZEL Xcode/spdlog/include/\"";
 			};
 			name = Release;
 		};

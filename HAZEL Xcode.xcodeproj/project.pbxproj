@@ -10,6 +10,9 @@
 		62CB298F25D8580500C7E0DF /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62CB298825D8580500C7E0DF /* Application.cpp */; };
 		62CB299025D8580500C7E0DF /* SandboxApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62CB298A25D8580500C7E0DF /* SandboxApp.cpp */; };
 		62CB299125D8580500C7E0DF /* log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62CB298E25D8580500C7E0DF /* log.cpp */; };
+		62CB29A825D85FEF00C7E0DF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CB29A725D85FEF00C7E0DF /* OpenGL.framework */; };
+		62CB29AA25D8600100C7E0DF /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CB29A925D8600100C7E0DF /* libglfw.3.3.dylib */; };
+		62CB29AC25D8601400C7E0DF /* libGLEW.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CB29AB25D8601400C7E0DF /* libGLEW.2.2.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +41,9 @@
 		62CB298D25D8580500C7E0DF /* MouseCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseCodes.h; sourceTree = "<group>"; };
 		62CB298E25D8580500C7E0DF /* log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = log.cpp; sourceTree = "<group>"; };
 		62CB299325D8581000C7E0DF /* spdlog */ = {isa = PBXFileReference; lastKnownFileType = folder; path = spdlog; sourceTree = "<group>"; };
+		62CB29A725D85FEF00C7E0DF /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		62CB29A925D8600100C7E0DF /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../../usr/local/Cellar/glfw/3.3.2/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
+		62CB29AB25D8601400C7E0DF /* libGLEW.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.2.0.dylib; path = ../../../../../../../usr/local/Cellar/glew/2.2.0_1/lib/libGLEW.2.2.0.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62CB29AC25D8601400C7E0DF /* libGLEW.2.2.0.dylib in Frameworks */,
+				62CB29AA25D8600100C7E0DF /* libglfw.3.3.dylib in Frameworks */,
+				62CB29A825D85FEF00C7E0DF /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +65,7 @@
 			children = (
 				62CB297B25D856E700C7E0DF /* HAZEL Xcode */,
 				62CB297A25D856E700C7E0DF /* Products */,
+				62CB29A625D85FEE00C7E0DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +94,16 @@
 				62CB298A25D8580500C7E0DF /* SandboxApp.cpp */,
 			);
 			path = "HAZEL Xcode";
+			sourceTree = "<group>";
+		};
+		62CB29A625D85FEE00C7E0DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				62CB29AB25D8601400C7E0DF /* libGLEW.2.2.0.dylib */,
+				62CB29A925D8600100C7E0DF /* libglfw.3.3.dylib */,
+				62CB29A725D85FEF00C7E0DF /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,11 +222,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/HAZEL Xcode/spdlog/include\"";
 			};
 			name = Debug;
 		};
@@ -255,10 +277,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/HAZEL Xcode/spdlog/include\"";
 			};
 			name = Release;
 		};
@@ -267,6 +291,11 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glfw/3.3.2/lib,
+					/usr/local/Cellar/glew/2.2.0_1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/HAZEL Xcode/spdlog/include/\"";
 			};
@@ -277,6 +306,11 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glfw/3.3.2/lib,
+					/usr/local/Cellar/glew/2.2.0_1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/HAZEL Xcode/spdlog/include/\"";
 			};

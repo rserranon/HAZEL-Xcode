@@ -7,6 +7,9 @@
 
 #include "MacWindow.h"
 #include "log.h"
+#include "ApplicationEvent.h"
+#include "KeyEvent.h"
+#include "MouseEvent.h"
 
 namespace Hazel {
 
@@ -47,6 +50,17 @@ namespace Hazel {
         glfwMakeContextCurrent(m_Window);
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVsync(true);
+        
+        // Set GLFW callbacks using lambdas
+        glfwSetWindowSizeCallback(m_Window, [] ( GLFWwindow* window, int width, int height )
+        {
+            WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+            data.Width = width;
+            data.Height = height;
+            
+            WindowResizeEvent event(width, height);
+            data.EventCallback(event);
+        });
     }
 
     void MacWindow::Shutdown()

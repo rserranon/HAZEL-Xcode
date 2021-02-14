@@ -61,6 +61,40 @@ namespace Hazel {
             WindowResizeEvent event(width, height);
             data.EventCallback(event);
         });
+        
+        glfwSetWindowCloseCallback(m_Window, [] (GLFWwindow* window)
+        {
+            WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+            WindowCloseEvent event;
+            data.EventCallback( event );
+        });
+        
+        glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
+        {
+            WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+            
+            switch (action)
+            {
+                case GLFW_PRESS:
+                {
+                    KeyPressedEvent event(key, 0);
+                    data.EventCallback(event);
+                    break;
+                }
+                case GLFW_RELEASE:
+                {
+                    KeyReleasedEvent event(key);
+                    data.EventCallback(event);
+                    break;
+                }
+                case GLFW_REPEAT:
+                {
+                    
+                    break;
+                }
+            }
+        }
+        );
     }
 
     void MacWindow::Shutdown()

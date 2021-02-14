@@ -5,11 +5,13 @@
 #include "spdlog/spdlog.h"
 #include "ApplicationEvent.h"
 #include "MouseEvent.h"
+#include "GLFW/glfw3.h"
 
 namespace Hazel {
 
   Application::Application()
   {
+      m_Window = std::unique_ptr<Hazel::Window>(Window::Create());
   };
 
   Application::~Application()
@@ -19,17 +21,13 @@ namespace Hazel {
 
   void Application::Run()
   {
-    while (true){
+    while (m_Running){
 
-        Hazel::WindowResizeEvent  we (1200, 720);
-        HZ_TRACE(we);
-        Hazel::MouseMovedEvent    me (50.0f, 50.0f);
-        HZ_TRACE(me);
-        Hazel::WindowResizeEvent  we2 (640, 200);
-        if ( we2.IsInCategory(EventCategoryApplication) )
-        {
-            HZ_TRACE(we2);
-        };
+        glClearColor(1, 0, 1, 1);
+        glClear(GL_COLOR_BUFFER_BIT);
+        m_Window->OnUpdate();
+        
+        
 
     };
   };

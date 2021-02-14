@@ -13,6 +13,7 @@
 		62CB29A825D85FEF00C7E0DF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CB29A725D85FEF00C7E0DF /* OpenGL.framework */; };
 		62CB29AA25D8600100C7E0DF /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CB29A925D8600100C7E0DF /* libglfw.3.3.dylib */; };
 		62CB29AC25D8601400C7E0DF /* libGLEW.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CB29AB25D8601400C7E0DF /* libGLEW.2.2.0.dylib */; };
+		62CB29B425D892CE00C7E0DF /* MacWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62CB29B325D892CE00C7E0DF /* MacWindow.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +45,9 @@
 		62CB29A725D85FEF00C7E0DF /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		62CB29A925D8600100C7E0DF /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../../usr/local/Cellar/glfw/3.3.2/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		62CB29AB25D8601400C7E0DF /* libGLEW.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.2.0.dylib; path = ../../../../../../../usr/local/Cellar/glew/2.2.0_1/lib/libGLEW.2.2.0.dylib; sourceTree = "<group>"; };
+		62CB29B125D862DB00C7E0DF /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
+		62CB29B325D892CE00C7E0DF /* MacWindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MacWindow.cpp; sourceTree = "<group>"; };
+		62CB29B625D8934300C7E0DF /* MacWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacWindow.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,9 @@
 		62CB297B25D856E700C7E0DF /* HAZEL Xcode */ = {
 			isa = PBXGroup;
 			children = (
+				62CB29B125D862DB00C7E0DF /* Window.h */,
+				62CB29B325D892CE00C7E0DF /* MacWindow.cpp */,
+				62CB29B625D8934300C7E0DF /* MacWindow.h */,
 				62CB299325D8581000C7E0DF /* spdlog */,
 				62CB298825D8580500C7E0DF /* Application.cpp */,
 				62CB298725D8580500C7E0DF /* Application.h */,
@@ -165,6 +172,7 @@
 				62CB299125D8580500C7E0DF /* log.cpp in Sources */,
 				62CB298F25D8580500C7E0DF /* Application.cpp in Sources */,
 				62CB299025D8580500C7E0DF /* SandboxApp.cpp in Sources */,
+				62CB29B425D892CE00C7E0DF /* MacWindow.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,15 +25,16 @@ int main()
      Hazel::Log::Init();
     HZ_CORE_WARN("Initalized Core Log!");
 
-    HZ_TRACE("Trace!");
+  /*  HZ_TRACE("Trace!");
     HZ_INFO("Info!");
     HZ_WARN("Warn!");
     HZ_ERROR("Error!");
     HZ_WARN("Initalized APP!");
+   */
 
-    std::cout << "Welcome to Hazel, press any key to continue..." << '\n';
+    // std::cout << "Welcome to Hazel, press any key to continue..." << '\n';
 
-    std::cin.get();
+    // std::cin.get();
 
     Sandbox* sandbox = new Sandbox();
     sandbox->Run();

@@ -7,6 +7,8 @@
 #include "MouseEvent.h"
 #include "GLFW/glfw3.h"
 
+#define GL_SILENCE_DEPRECATION
+
 namespace Hazel {
 
 #define BIND_EVENT_FN(x)std::bind(&x, this, std::placeholders::_1)

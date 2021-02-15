@@ -94,7 +94,8 @@ namespace Hazel {
                 }
                 case GLFW_REPEAT:
                 {
-                    
+                    KeyPressedEvent event(key, 1);
+                    data.EventCallback(event);
                     break;
                 }
             }

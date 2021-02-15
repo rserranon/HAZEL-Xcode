@@ -14,6 +14,11 @@
 namespace Hazel {
 
     static bool s_GLFWInitilized = false;
+
+    static void GLFWErrorCallback( int error, const char* description )
+    {
+        HZ_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
+    }
     
     Window* Window::Create( const WindowProps& props)
     {
@@ -43,7 +48,7 @@ namespace Hazel {
             // TODO terminate on system shutdown
             int sucess = glfwInit();
             HZ_CORE_ERROR("Error initializing GLFW!");
-            
+            glfwSetErrorCallback(GLFWErrorCallback);
             s_GLFWInitilized =  true;
         }
         m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, props.Title.c_str(), nullptr, nullptr );

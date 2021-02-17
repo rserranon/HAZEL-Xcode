@@ -1,3 +1,6 @@
 [submodule "HAZEL Xcode/spdlog"]
 	path = HAZEL Xcode/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "HAZEL-Xcode/spdlog"]
+	path = HAZEL-Xcode/spdlog
+	url = https://github.com/gabime/spdlog.git
